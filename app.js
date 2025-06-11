@@ -1,12 +1,11 @@
-const http = require('node:http')
-const hostname = '127.0.0.1';
-const port = 3000;
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    res.end('<h1>Hello world</h1>');
-});
+import express from 'express'
+import multer from 'multer'
+import { v2 as cloudinary } from 'cloudinary';
+import fs from 'fs'
+import cors from 'cors'
+import dotenv from "dotenv";
 
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
+dotenv.config()
+
+const app = express()
+
